@@ -14,7 +14,7 @@
 		<version>3.1.0</version>
 		<relativePath /> 
 	</parent> -->
-	<dependencies>
+<!-- 	<dependencies>
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -40,7 +40,7 @@
         <artifactId>tomcat-embed-jasper</artifactId>
     </dependency> -->
    
-
+<!--
 	</dependencies>
 	<build>
 		<plugins>
@@ -49,5 +49,72 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-	</build>
+	</build> -->
+	 <properties>
+        <java.version>17</java.version>
+        <spring.boot.version>3.1.0</spring.boot.version>
+    </properties>    
+
+    <dependencies>
+        <!-- Spring Boot Starter Web -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        
+        <!-- JUnit for testing -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+        <!-- Other dependencies -->
+        <dependency>
+            <groupId>com.oracle.bedrock</groupId>
+            <artifactId>bedrock-runtime-maven</artifactId>
+            <version>5.1.2</version>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <!-- Spring Boot Maven Plugin -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            
+            <!-- Maven Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    
+    <distributionManagement>
+         <snapshotRepository>
+            <id>nexusRepo</id>
+            <url>http://13.233.230.166:8081/repository/maven-snapshots/</url>
+         </snapshotRepository>
+        
+        <repository>
+            <id>nexusRepo</id>
+            <url>http://13.233.230.166:8081/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
+    
+    <pluginRepositories>
+        <pluginRepository>    
+            <id>maven1</id>
+            <name>Maven.org</name>
+            <url>http://repo1.maven.org/maven2</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
